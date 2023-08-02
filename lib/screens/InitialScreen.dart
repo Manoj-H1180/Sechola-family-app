@@ -4,12 +4,15 @@ import 'package:google_fonts/google_fonts.dart';
 import 'package:onefamily/screens/LoginScreen.dart';
 import 'package:onefamily/screens/RegisterScreen.dart';
 
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class InitialScreen extends StatelessWidget {
+  const InitialScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.transparent,
+      ),
       body: Center(
         child: Padding(
           padding: const EdgeInsets.all(9.0),
@@ -41,7 +44,7 @@ class Home extends StatelessWidget {
                   ),
                   style: ElevatedButton.styleFrom(
                       primary:
-                          tgGreen, // Replace with your desired button color.
+                          tgBlue, // Replace with your desired button color.
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
                       fixedSize: Size(400, 50)),
