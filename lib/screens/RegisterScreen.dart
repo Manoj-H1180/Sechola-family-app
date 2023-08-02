@@ -102,13 +102,15 @@ class _RegisterScreenState extends State<RegisterScreen> {
         slivers: [
           SliverAppBar(
             backgroundColor:
-                Colors.transparent, // Set the AppBar background to transparent
+                Colors.white, // Set the AppBar background to transparent
             leading: IconButton(
               icon: Icon(Icons.arrow_back_ios_new),
               onPressed: () {
                 Navigator.of(context).pop();
               },
             ),
+            floating: true,
+            pinned: true,
           ),
           SliverList(
             delegate: SliverChildListDelegate(
