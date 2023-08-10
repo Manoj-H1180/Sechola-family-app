@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onefamily/constants/colors.dart';
 import 'package:onefamily/screens/LoginScreen.dart';
+import 'package:onefamily/screens/otp_page.dart';
 
-class ForgotPasswordScreen extends StatefulWidget {
-  const ForgotPasswordScreen({Key? key}) : super(key: key);
+class forgotpasswordscreen extends StatefulWidget {
+  const forgotpasswordscreen({Key? key}) : super(key: key);
 
   @override
-  _ForgotPasswordScreenState createState() => _ForgotPasswordScreenState();
+  _forgotpasswordscreenState createState() => _forgotpasswordscreenState();
 }
 
-class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
+class _forgotpasswordscreenState extends State<forgotpasswordscreen> {
   TextEditingController _emailOrPhoneController = TextEditingController();
   FocusNode _emailOrPhoneFocusNode = FocusNode();
 
@@ -25,8 +26,24 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.white,
+        leadingWidth: 80,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: SizedBox(
+            height: 40,
+            width: 40,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                // border: Border.all(color: Colors.grey),
+                color: Color.fromARGB(255, 181, 203, 244),
+              ),
+              child: Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.black,
+              ),
+            ),
+          ),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -70,6 +87,12 @@ class _ForgotPasswordScreenState extends State<ForgotPasswordScreen> {
               ElevatedButton(
                 onPressed: () {
                   // Implement your "Forgot Password" logic here.
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => otppage(),
+                      ));
+
                   String emailOrPhone = _emailOrPhoneController.text;
                   print('Email or Phone: $emailOrPhone');
                 },

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart'; // Add this import
 import 'package:google_fonts/google_fonts.dart';
 import 'package:onefamily/constants/colors.dart';
-import 'package:onefamily/screens/ForgotPasswordScreen.dart';
+import 'package:onefamily/screens/forgot_password_screen.dart';
 import 'package:onefamily/screens/RegisterScreen.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -14,7 +14,6 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   bool _showPassword = false;
-  bool _showImage = true;
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
   FocusNode _emailFocusNode = FocusNode();
@@ -49,8 +48,23 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.white,
+        leadingWidth: 80,
         leading: IconButton(
-          icon: Icon(Icons.arrow_back_ios_new),
+          icon: SizedBox(
+            height: 40,
+            width: 40,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                // border: Border.all(color: Colors.grey),
+                color: Color.fromARGB(255, 181, 203, 244),
+              ),
+              child: Icon(
+                Icons.arrow_back_ios_new,
+                color: Colors.black,
+              ),
+            ),
+          ),
           onPressed: () {
             Navigator.of(context).pop();
           },
@@ -106,9 +120,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                 focusNode: _emailFocusNode,
                                 onTap: () {
                                   _passwordFocusNode.unfocus();
-                                  setState(() {
-                                    _showImage = false;
-                                  });
+                                  
                                 },
                                 decoration: InputDecoration(
                                   hintText: 'Enter your email',
@@ -157,7 +169,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          ForgotPasswordScreen(),
+                                          forgotpasswordscreen(),
                                     ),
                                   );
                                 },
@@ -178,9 +190,7 @@ class _LoginScreenState extends State<LoginScreen> {
                               String password = _passwordController.text;
                               print('Email: $email');
                               print('Password: $password');
-                              setState(() {
-                                _showImage = true;
-                              });
+                              
                             },
                             child: Text(
                               'Login',
